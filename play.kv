@@ -1,0 +1,94 @@
+<PlayingScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 0
+        padding: 0
+        
+        # Section 1: Header with back and settings buttons
+        BoxLayout:
+            size_hint_y: 0.12
+            padding: '10dp'
+            spacing: '100dp' 
+            
+            IButton:
+                source: "icon_music/button_back.png"
+                size_hint: .6, .6 
+                # size: 45, 45
+                pos_hint: {"x": 0, "top": 0.95}
+                on_press: root.on_button_back_click()
+            
+            Widget:
+                size_hint_x: 1
+            
+            IButton:
+                id: music_button
+                source: "icon_music/music_on.png"
+                size_hint: .6, .6
+                # size: 45, 45
+                pos_hint: {"right": 1, "top": 0.95}
+                on_press: root.button_music_click()
+        
+        # Section 2: Game info (title, level, score)
+        BoxLayout:
+            size_hint_y: 0.18
+            orientation: 'vertical'
+            padding: '10dp'
+            spacing: '5dp'
+            
+            Label:
+                text: "Cari Pasangan Balon yang Jumlahnya 10"
+                font_name: "fonts/Poppins-Medium.ttf"
+                font_size: "23sp"
+                color: 1, 1, 1, 1
+                size_hint_y: 0.6
+                size: 500, 100
+                text_size: self.size  
+                halign: "center"  
+                valign: "middle"  
+            
+
+            BoxLayout:
+                size_hint_y: 0.4
+                spacing: '10dp'
+                padding: ['20dp', '0dp', '40dp', 0]
+                
+                Label:
+                    text: f"Level {root.current_level}"
+                    font_name: "fonts/Poppins-Regular.ttf"
+                    font_size: "16sp"
+                    color: 1, 1, 1, 1
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"center_y": 0.5}
+                    canvas.before:
+                        Rectangle:
+                            source: "images/Rectangle64.png"
+                            size: (100, self.texture_size[1] + 20)
+                            pos: (self.x - 12, self.y - 10)
+                
+                Widget:
+                    size_hint_x: 1  
+                
+                Label:
+                    text: f"Skor: {root.total_score}"
+                    font_name: "fonts/Poppins-Regular.ttf"
+                    font_size: "16sp"
+                    color: 1, 1, 1, 1
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"center_y": 0.5, "right": 0.98} 
+                    canvas.before:
+                        Rectangle:
+                            source: "images/Rectangle64.png"
+                            size: (100, self.texture_size[1] + 20)
+                            pos: (self.x - 12, self.y - 10)
+        # Section 3: Game area
+        BoxLayout:
+            size_hint_y: 0.7
+            padding: '10dp'
+            
+            BoxLayout:
+                id: game_container
+                orientation: "vertical"
+                size_hint: 0.95, 0.95
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}

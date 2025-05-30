@@ -1,0 +1,24 @@
+<MenuScreen>:
+    FloatLayout:
+        ImageButton:
+            id: music_button
+            source: "icon_music/music_on.png"
+            size_hint: .1,.1
+            # size: 50, 50
+            pos_hint: {"right": 0.96, "top": 1}
+            on_press: root.on_button_music_click()
+        ImageButton:
+            id: music_start
+            source: "images/buttonstart.png"
+            size_hint: .3, .3
+            # size: 300, 80
+            # size_hint: .3, .3
+            # size: 300, 80
+            pos_hint: {"center_x": 0.50, "center_y": 0.25}
+            on_press: root.on_button_play_click()
+
+<ImageButton>:
+    # Define how your ImageButton should look here
+    # This is just a basic example
+    size_hint: None, None
+    size: 100, 50  # Adjust as needed

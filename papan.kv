@@ -1,0 +1,28 @@
+PlayingArea:
+
+<StyledLabel>:
+    color: 1, 1, 1, 1
+    outline_width: 2
+    outline_color: 0, 0, 0, 1
+    font_name: 'fonts/Roboto-Bold.ttf'  # Pastikan font tersedia atau gunakan default
+
+<StyledButton>:
+    background_normal: ''
+    background_color: 0.2, 0.6, 1, 1
+    color: 1, 1, 1, 1
+    size_hint: 0.4, None
+    height: '50dp'
+    font_size: '18sp'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.4, 0.8, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [25]
+
+<ImageButton>:
+
+<PlayingArea>:
+    
